@@ -12,9 +12,9 @@ export default function Page() {
       <Typography
         variant={"display-sm"}
         weight={"semibold"}
-        className="lg:-mt-60"
+        className="lg:-mt-60 text-5xl"
       >
-        hi, my name is joey.
+        hi, my name is joey!
       </Typography>
     </div>
   );
