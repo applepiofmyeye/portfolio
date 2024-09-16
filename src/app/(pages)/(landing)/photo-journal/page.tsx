@@ -1,28 +1,29 @@
 import { Typography } from "@/components/typography";
 import React from "react";
-import Masonry from "@mui/lab/Masonry";
 
 const images = [
-  "/travel/bastille-street-art.jpeg",
-  "/travel/bastille.jpeg",
-  "/travel/camden-market.jpeg",
-  "/travel/chinatown.jpeg",
-  "/travel/landmark812.jpeg",
-  "/travel/dlorangerie.jpeg",
-  "/travel/montmarte.jpeg",
-  "/travel/shakespeare-square.jpeg",
-  "/travel/petit-palais.jpeg",
-  "/travel/le-petit-palais-entrance.jpeg",
-  "/travel/claude-monet-museum.jpeg",
-  "/travel/neals-yard.jpeg",
-  "/travel/pho.jpeg",
-  "/travel/shakespeare-and-co.jpeg",
+  {
+    img: "/travel/bastille-street-art.jpeg",
+    title: "Bastille Street Art in Paris",
+  },
+  { img: "/travel/camden-market.jpeg", title: "Camden Market Views" },
+  { img: "/travel/chinatown.jpeg", title: "London's Chinatown" },
+  { img: "/travel/landmark812.jpeg", title: "Landmark 81 in Ho Chi Minh City" },
+  { img: "/travel/dlorangerie.jpeg", title: "De L'Orangerie" },
+  { img: "/travel/montmarte.jpeg", title: "Montmarte" },
+  { img: "/travel/shakespeare-square.jpeg", title: "Shakespeare Square" },
+  { img: "/travel/petit-palais.jpeg", title: "Le Petit Palais" },
+  { img: "/travel/le-petit-palais-entrance.jpeg", title: "Le Petit Palais" },
+  { img: "/travel/claude-monet-museum.jpeg", title: "Claude Monet Museum" },
+  { img: "/travel/neals-yard.jpeg", title: "Neal's Yard" },
+  { img: "/travel/pho.jpeg", title: "Pho" },
+  { img: "/travel/shakespeare-and-co.jpeg", title: "Shakespeare and Co" },
 ];
 
 export default function PhotoJournalPage() {
   return (
     <div className="grid justify-items-center">
-      <div className="flex items-center flex-col max-w-4xl space-y-20">
+      <div className="flex items-center flex-col max-w-4xl space-y-4 md:space-y-10">
         <div className="space-y-2 flex flex-col text-center">
           <Typography variant={"headline-md"} weight={"semibold"}>
             my photo gallery {"<3"}
@@ -31,11 +32,20 @@ export default function PhotoJournalPage() {
             my favourtie photos from my recent travels!
           </Typography>
         </div>
-        <Masonry spacing={2} columns={3}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
-            <img key={index} src={image} className="rounded-xl max-w-full" />
+            <div key={index} className="gap-4">
+              <img
+                key={index}
+                src={image.img}
+                className="rounded-md md:rounded-xl max-w-full"
+              />
+              <Typography variant={"label-lg"} weight={"semibold"}>
+                {image.title}
+              </Typography>
+            </div>
           ))}
-        </Masonry>
+        </div>
       </div>
     </div>
   );

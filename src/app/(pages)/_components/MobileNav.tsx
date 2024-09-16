@@ -1,18 +1,15 @@
-import Link from "next/link";
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Link from "next/link";
 
 import { Routes } from "@/constants/site-config";
 
-import Image from "next/image";
-
-import { Car, Flower2, HamIcon } from "lucide-react";
 import { Typography } from "@/components/typography";
-import { buttonVariants } from "@/components/ui/button";
+import { Flower2 } from "lucide-react";
 
 export function MobileNav() {
   return (
@@ -22,18 +19,18 @@ export function MobileNav() {
           <Flower2 />
         </div>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="bg-[#46688d]">
         <div className="grid items-center gap-6 text-sm">
           <SheetClose asChild>
-            <Link href={`#${Routes.PROJECTS}`}>
-              <Typography variant={"label-lg"} weight={"semibold"}>
+            <Link href={`${Routes.PROJECTS}`}>
+              <Typography variant={"title-sm"} weight={"semibold"}>
                 projects
               </Typography>
             </Link>
           </SheetClose>
           <SheetClose asChild>
             <Link href={Routes.PHOTOJOURNAL}>
-              <Typography variant={"label-lg"} weight={"semibold"}>
+              <Typography variant={"title-sm"} weight={"semibold"}>
                 photo journal
               </Typography>
             </Link>

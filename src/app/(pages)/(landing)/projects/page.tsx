@@ -18,7 +18,7 @@ export default function page() {
   const projects: Project[] = [
     {
       name: "Vucar inspection report",
-      image: "",
+      image: "/projects/vucar-inspection-report.png",
       description: `An inspection report dashboard for car inspection officers to keep track of inspections.
         A project focused on how to deploy a front end and back end application to an AWS EC2 instance, using NGINX.
         `,
@@ -36,7 +36,7 @@ export default function page() {
     },
     {
       name: "NUSWhere",
-      image: "",
+      image: "/projects/NUSWhere.png",
       description:
         "A navigation app for NUS students to navigate from specific classrooms to other classrooms, providing sheltered routes and bus routes, built with React Native and Firebase.",
       skills: [
@@ -53,7 +53,7 @@ export default function page() {
     },
     {
       name: "melos",
-      image: "",
+      image: "/projects/melos.jpeg",
       description:
         "A telegram bot that would take in a Youtube URL and return it as an MP3 file, for people who listen to music or covers on Youtube and would like to have them store locally, easily accessible without internet. Built with Python and Telegram Bot API.",
       skills: ["Telegram Bot API", "Python"],
@@ -67,7 +67,7 @@ export default function page() {
         "A website for my small business, lil ben's universe, built with React and Stripe API. The components were built with pure CSS, and the Stripe API endpoint was created using an Express Node.js server.",
       skills: ["React", "Stripe API", "Express", "Node.js"],
       status: "not maintained",
-      link: "https://github.com/applepiofmyeye/lil-ben",
+      link: "https://tiktok.com/@lilbenuniverse/video/7327104521048444161",
     },
   ];
   return (
@@ -76,13 +76,13 @@ export default function page() {
         my projects!
       </Typography>
       <Typography variant={"body-md"} className="opacity-80">
-        some of my passion projects over the past few years. (some are publicly
-        viewable on{" "}
+        some of my passion projects over the past few years. click on each card
+        title for more info!(some are publicly viewable on{" "}
         <Link
           href="https://github.com/applepiofmyeye"
           className="hover:underline"
         >
-          my github
+          my github here
         </Link>
         )
       </Typography>
@@ -139,7 +139,12 @@ export default function page() {
                   ))}
                 </div>
               </div>
-              <img src={project.image == "" ? "/mochi.png" : project.image} />
+              <div className="w-auto h-[40vh]">
+                <img
+                  src={project.image === "" ? "/mochi.png" : project.image}
+                  className="w-full h-full object-contain object-left"
+                />
+              </div>
             </Card>
           </section>
         ))}
