@@ -1,9 +1,12 @@
 import { Typography } from "@/components/typography";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 type Project = {
   name: string;
@@ -83,7 +86,8 @@ export default function page() {
     {
       name: "lil ben shop",
       image: "",
-      video: "projects/lilbenuniverse.mp4",
+      video:
+        "https://www.tiktok.com/player/v1/7327104521048444161?controls=0&loop=1&autoplay=1&native_context_menu=0",
       description:
         "A website for my small business, lil ben's universe, built with React and Stripe API. The components were built with pure CSS, and the Stripe API endpoint was created using an Express Node.js server.",
       skills: ["React", "Stripe API", "Express", "Node.js"],
@@ -101,86 +105,128 @@ export default function page() {
         my projects!
       </Typography>
       <Typography variant={"body-md"} className="opacity-80 text-[#46688d]">
-        some of my passion projects over the past few years. click on each card
-        title for more info! (some are publicly viewable on{" "}
+        Some of my passion projects over the years. Click a title or the button
+        to view more. Many are also on{" "}
         <Link
           href="https://github.com/applepiofmyeye"
           className="hover:underline"
         >
           my github here
         </Link>
-        )
       </Typography>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <section key={project.name}>
-            <Card className="p-6 space-y-6 flex flex-col align-center h-[100%]">
-              <div className="space-y-2">
-                <div className="flex justify-between align-baseline">
-                  <Link
-                    href={project.link === "" ? "/projects" : project.link!}
-                    className="text-[#46688d] text-lg"
-                  >
+            <Card className="flex h-full flex-col overflow-hidden transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="p-6 pb-0">
+                {/* Media */}
+                {project.video ? (
+                  <div className="relative w-full overflow-hidden rounded-md border aspect-[9/16] bg-white">
+                    <iframe
+                      className="absolute left-0 top-0 h-full w-full"
+                      src={project.video}
+                      title={`${project.name} demo`}
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full overflow-hidden rounded-md border aspect-[4/3] bg-white">
+                    <Image
+                      src={project.image === "" ? "/mochi.png" : project.image}
+                      alt={`${project.name} cover image`}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-contain p-4"
+                      priority={false}
+                    />
+                  </div>
+                )}
+              </div>
+
+              <CardContent className="space-y-4">
+                <div className="flex items-start justify-between gap-4">
+                  {project.link && project.link !== "" ? (
+                    <Link
+                      href={project.link}
+                      className="group"
+                      aria-label={`Open ${project.name}`}
+                    >
+                      <Typography
+                        variant={"title-lg"}
+                        weight={"semibold"}
+                        className="text-[#46688d] group-hover:underline"
+                      >
+                        {project.name}
+                      </Typography>
+                    </Link>
+                  ) : (
                     <Typography
                       variant={"title-lg"}
                       weight={"semibold"}
-                      className={cn(
-                        "text-[#46688d]",
-                        project.link === ""
-                          ? "cursor-default"
-                          : "hover:underline"
-                      )}
+                      className="text-[#46688d]"
                     >
                       {project.name}
                     </Typography>
-                  </Link>
+                  )}
+
                   <Badge
                     className={cn(
-                      project.status === "deployed"
-                        ? "bg-green-200"
-                        : project.status === "wip"
-                        ? "bg-yellow-200"
-                        : "bg-red-200",
-                      "text-[#46688d] h-fit"
+                      "h-fit border",
+                      project.status === "deployed" &&
+                        "bg-emerald-100 text-emerald-700 border-emerald-200",
+                      project.status === "wip" &&
+                        "bg-amber-100 text-amber-700 border-amber-200",
+                      project.status === "not maintained" &&
+                        "bg-rose-100 text-rose-700 border-rose-200",
+                      project.status === "stealth mode" &&
+                        "bg-slate-100 text-slate-700 border-slate-200"
                     )}
                   >
                     {project.status}
                   </Badge>
                 </div>
-                <Typography variant={"body-sm"} className="text-gray-400">
+
+                <Typography variant={"body-sm"} className="text-[#46688d]/80">
                   {project.description}
                 </Typography>
-                <div className="space-x-2 space-y-2">
+
+                <div className="flex flex-wrap gap-2">
                   {project.skills.map((skill) => (
                     <Badge
                       key={skill}
-                      className={cn(
-                        "text-[#46688d] h-fit bg-gray-200",
-                        project.skills.length === 1 ? "w-full" : "w-fit"
-                      )}
+                      className="h-fit border bg-gray-100 text-[#46688d]"
                     >
                       {skill}
                     </Badge>
                   ))}
                 </div>
-              </div>
-              <div className="w-auto h-[40vh]">
-                {project.video ? (
-                  <video
-                    src={project.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-contain object-left"
-                  />
+              </CardContent>
+
+              <CardFooter className="mt-auto">
+                {project.link && project.link !== "" ? (
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="gap-1 text-[#46688d]"
+                  >
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${project.name}`}
+                    >
+                      View project
+                      <ExternalLink className="h-4 w-4" />
+                    </Link>
+                  </Button>
                 ) : (
-                  <img
-                    src={project.image === "" ? "/mochi.png" : project.image}
-                    className="w-full h-full object-contain object-left"
-                  />
+                  <div className="text-xs text-[#46688d]/60">
+                    No public link available
+                  </div>
                 )}
-              </div>
+              </CardFooter>
             </Card>
           </section>
         ))}
