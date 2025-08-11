@@ -75,8 +75,8 @@
     body {
       @apply bg-background text-foreground;
       font-family: 'Itim', sans-serif;
-      background-color: #46688d;
       color: #faf6ca;
-      ;
+      background: url('/marjan-blan-_kUxT8WkoeY-unsplash.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
     }
   }

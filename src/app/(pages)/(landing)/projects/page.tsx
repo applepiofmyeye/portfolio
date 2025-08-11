@@ -10,12 +10,32 @@ type Project = {
   image: string;
   description: string;
   skills: string[];
-  status: "deployed" | "wip" | "not maintained";
+  status: "deployed" | "wip" | "not maintained" | "stealth mode";
   link?: string;
+  video?: string;
 };
 
 export default function page() {
   const projects: Project[] = [
+    {
+      name: "ember",
+      image: "/projects/ember.png",
+      description:
+        "A Telegram bot deployment platform that allows users to deploy their own Telegram bots with a few clicks, built with React and AWS.",
+      skills: [
+        "React",
+        "AWS",
+        "AWS Lambda",
+        "AWS API Gateway",
+        "AWS S3",
+        "AWS DynamoDB",
+        "AWS IAM",
+        "AWS Route 53",
+        "Docker",
+      ],
+      status: "stealth mode",
+      link: "https://github.com/applepiofmyeye/ember",
+    },
     {
       name: "Vucar inspection report",
       image: "/projects/vucar-inspection-report.png",
@@ -63,6 +83,7 @@ export default function page() {
     {
       name: "lil ben shop",
       image: "",
+      video: "projects/lilbenuniverse.mp4",
       description:
         "A website for my small business, lil ben's universe, built with React and Stripe API. The components were built with pure CSS, and the Stripe API endpoint was created using an Express Node.js server.",
       skills: ["React", "Stripe API", "Express", "Node.js"],
@@ -71,13 +92,17 @@ export default function page() {
     },
   ];
   return (
-    <div className="space-y-8 py-8">
-      <Typography variant={"display-md"} weight={"semibold"}>
+    <div className="space-y-8 py-8 text-[#46688d]">
+      <Typography
+        variant={"display-md"}
+        weight={"semibold"}
+        className="text-[#46688d]"
+      >
         my projects!
       </Typography>
-      <Typography variant={"body-md"} className="opacity-80">
+      <Typography variant={"body-md"} className="opacity-80 text-[#46688d]">
         some of my passion projects over the past few years. click on each card
-        title for more info!(some are publicly viewable on{" "}
+        title for more info! (some are publicly viewable on{" "}
         <Link
           href="https://github.com/applepiofmyeye"
           className="hover:underline"
@@ -140,10 +165,21 @@ export default function page() {
                 </div>
               </div>
               <div className="w-auto h-[40vh]">
-                <img
-                  src={project.image === "" ? "/mochi.png" : project.image}
-                  className="w-full h-full object-contain object-left"
-                />
+                {project.video ? (
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain object-left"
+                  />
+                ) : (
+                  <img
+                    src={project.image === "" ? "/mochi.png" : project.image}
+                    className="w-full h-full object-contain object-left"
+                  />
+                )}
               </div>
             </Card>
           </section>

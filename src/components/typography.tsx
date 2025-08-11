@@ -30,7 +30,7 @@ const typographyVariants = cva("text-gray-700, text-[#faf6ca]", {
       "title-md": "text-[16px] leading-[24px] md:text-[20px] md:leading-[28px]",
       "title-sm": "text-[16px] leading-[24px] md:text-[18px] md:leading-[24px]",
       "body-lg": "text-[16px] leading-[24px] md:text-[18px] md:leading-[28px]",
-      "body-md": "text-[14px] leading-[24px] md:text-[16px] md:leading-[24px]",
+      "body-md": "text-[16px] leading-[24px] md:text-[18px] md:leading-[28px]",
       "body-sm": "text-[12px] leading-[20px] md:text-[14px] md:leading-[20px]",
       "label-lg": "text-[14px] leading-[24px]",
       "label-md": "text-[12px] leading-[16px]",
