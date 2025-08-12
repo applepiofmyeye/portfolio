@@ -6,4 +6,4 @@ Made with React, NextJS
 If you're looking for some of the projects I work on in my free time, this is the place to be :-) https://joeylleyi.vercel.app/projects
 
 ## Photo Journal
-What started off as a wall of memories from different countries i've visited has now become a beautiful "scrapbook wall" which you can find here! https://joeylleyi.vercel.app
+What started off as a wall of memories from different countries i've visited has now become a beautiful "scrapbook wall" which you can find here! https://joeylleyi.vercel.app/photo-journal
