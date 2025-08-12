@@ -55,6 +55,24 @@ export default function Navbar() {
             <li
               className={cn(
                 "border-l-2 pl-3 transition-colors",
+                pathname.startsWith(`/${Routes.EXPERIENCES}`)
+                  ? "border-[#2f4f7f]"
+                  : "border-transparent hover:border-[#2f4f7f]"
+              )}
+            >
+              <Link
+                className={cn(
+                  "inline-block origin-left transition-[transform,color] duration-200 hover:scale-110 hover:text-[#2f4f7f]",
+                  pathname.startsWith(`/${Routes.EXPERIENCES}`) && "text-[#2f4f7f]"
+                )}
+                href={`/${Routes.EXPERIENCES}`}
+              >
+                experiences
+              </Link>
+            </li>
+            <li
+              className={cn(
+                "border-l-2 pl-3 transition-colors",
                 pathname.startsWith(`/${Routes.PHOTOJOURNAL}`)
                   ? "border-[#2f4f7f]"
                   : "border-transparent hover:border-[#2f4f7f]"

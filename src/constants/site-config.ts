@@ -10,6 +10,7 @@ export const Routes = {
   PROJECTS: "projects",
   PHOTOJOURNAL: "photo-journal",
   HAPPYTHOUGHTS: "happy-thoughts",
+  EXPERIENCES: "experiences",
 } as const;
 
 export const siteConfig = {
