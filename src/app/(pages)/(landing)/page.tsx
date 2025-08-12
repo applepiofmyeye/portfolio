@@ -28,8 +28,7 @@ export default function Page() {
           className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center"
         >
           i&apos;m a final year CS student at NUS, and a software engineer
-          intern at PayPal. i&apos;m also a big fan of photography, travel, and
-          food!
+          intern at PayPal. i&apos;m also a big fan of music, travel, and food!
         </Typography>
       </div>
       <div className="flex flex-col items-center justify-center h-screen space-y-4">
