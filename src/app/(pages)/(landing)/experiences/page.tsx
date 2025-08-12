@@ -181,7 +181,7 @@ function Ribbon({ label, index }: { label: string; index: number }) {
 
 // Tailwind arbitrary keyframes via CSS - appended using a style tag within the page
 // Since globals.css already includes tailwindcss-animate, we can add extra keyframes locally
-export function StyleInjector() {
+function StyleInjector() {
   return (
     <style
       // eslint-disable-next-line react/no-danger
