@@ -11,7 +11,7 @@ interface Props
   as?: TagName;
 }
 
-const typographyVariants = cva("text-gray-700, text-[#faf6ca]", {
+const typographyVariants = cva("text-gray-700, text-[#46688d]", {
   variants: {
     variant: {
       "display-lg":
