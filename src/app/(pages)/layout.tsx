@@ -5,7 +5,7 @@ export default function LandingLayout({ children }: React.PropsWithChildren) {
   return (
     <div className="min-h-screen flex">
       <Navbar />
-      <main className="flex-1 p-6 md:px-15 px-10">{children}</main>
+      <main className="flex-1 md:px-15 px-10">{children}</main>
     </div>
   );
 }
