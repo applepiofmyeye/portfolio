@@ -20,7 +20,7 @@ export function MobileNav() {
         </div>
       </SheetTrigger>
       <SheetContent className="bg-[#46688d]">
-        <div className="grid items-center gap-6 text-sm">
+        <div className="grid items-center gap-6 text-sm text-[#faf6ca]">
           <SheetClose asChild>
             <Link href={`/${Routes.PROJECTS}`}>
               <Typography variant={"title-sm"} weight={"semibold"}>
