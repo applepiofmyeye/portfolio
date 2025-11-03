@@ -18,6 +18,13 @@ const config = {
       },
     },
     extend: {
+      // Small / mobile-first screens and a max-width `mobile` utility
+      // `mobile:` can be used to target max-width devices (mobile-first helpers)
+      screens: {
+        xs: '375px',
+        // `mobile` is a max-width query useful for targeting phones
+        mobile: { max: '639px' },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

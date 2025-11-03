@@ -35,14 +35,18 @@ export default function PhotoJournalPage() {
   ];
 
   return (
-    <div className="grid justify-items-center text-[#46688d]">
+    <div className="grid justify-items-center text-[#46688d] mobile-container">
       <div className="flex items-center flex-col max-w-4xl md:max-w-7xl space-y-4 md:space-y-10 text-center my-8">
         {/* Souvenir scraps collage */}
         <div className="space-y-2 w-full">
-          <Typography variant={"display-md"} weight={"semibold"}>
+          <Typography
+            variant={"display-md"}
+            weight={"semibold"}
+            className="mobile-heading mobile:text-2xl"
+          >
             my travel scrapbook
           </Typography>
-          <Typography variant={"body-lg"} className="opacity-70">
+          <Typography variant={"body-lg"} className="opacity-70 body-text mobile:text-sm">
             odd-shaped mementos arranged in a loose collage, click to view its
             backstory and my travel photos :)
           </Typography>

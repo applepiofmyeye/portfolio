@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="text-[#46688d]">
+    <div className="text-[#46688d] mobile-container">
       <div className="flex flex-col items-center justify-center lg:flex-row lg:space-x-20 lg:space-y-0 h-screen">
         <Image
           src="/profile.jpg"
@@ -16,7 +16,7 @@ export default function Page() {
         <Typography
           variant={"display-sm"}
           weight={"semibold"}
-          className="lg:-mt-60 text-5xl text-[#46688d]"
+          className="lg:-mt-60 text-5xl text-[#46688d] mobile:text-3xl mobile-heading"
         >
           hi, my name&apos;s joey!
         </Typography>
@@ -25,7 +25,7 @@ export default function Page() {
         <Typography
           variant={"display-sm"}
           weight={"semibold"}
-          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center"
+          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center mobile:text-2xl mobile-heading body-text"
         >
           i&apos;m a final year CS student at NUS, and a software engineer
           intern at PayPal. i&apos;m also a big fan of music, travel, and food!
@@ -35,14 +35,14 @@ export default function Page() {
         <Typography
           variant={"display-sm"}
           weight={"semibold"}
-          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center"
+          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center mobile:text-2xl mobile-heading"
         >
           contact me at
         </Typography>
         <Typography
           variant={"body-lg"}
           weight={"semibold"}
-          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center"
+          className="lg:-mt-60 text-5xl text-[#466688d] max-w-4xl text-center mobile:text-xl body-text contact-text"
         >
           👩🏻‍💻 Github:{" "}
           <a

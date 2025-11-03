@@ -56,12 +56,12 @@ const EXPERIENCES: Experience[] = [
 
 export default function ExperiencesPage() {
   return (
-    <div className="space-y-8 py-8 text-[#46688d]">
+    <div className="space-y-8 py-8 text-[#46688d] mobile-container">
       <header className="space-y-2">
         <Typography
           variant="display-md"
           weight="semibold"
-          className="text-[#46688d]"
+          className="text-[#46688d] mobile-heading mobile:text-2xl"
         >
           my experiences
         </Typography>

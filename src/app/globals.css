@@ -80,3 +80,91 @@
       min-height: 100vh;
     }
   }
+
+  /* Mobile-optimised helper classes and responsive typography */
+  @layer components {
+    /* Visible only on small screens */
+    .mobile-only { @apply block sm:hidden; }
+    /* Hidden on small screens, visible on desktop */
+    .desktop-only { @apply hidden sm:block; }
+
+    /* Mobile-optimised container padding */
+    .mobile-container { @apply px-4 sm:px-6 lg:px-8; max-width: 100%; }
+
+    /* Fluid, mobile-friendly headings and body text */
+    .mobile-heading {
+      font-size: clamp(1.125rem, 6vw, 1.75rem);
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .body-text {
+      font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+      line-height: 1.5;
+    }
+
+    /* Images scale nicely on small screens */
+    .img-mobile { @apply w-full h-auto object-cover rounded-md; }
+
+    /* Larger tappable areas on mobile */
+    .tap-area { @apply inline-flex items-center justify-center py-3 px-4 rounded-lg; }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .reduce-motion { scroll-behavior: auto; animation: none !important; transition: none !important; }
+    }
+
+    /* A small utility for strictly mobile (max-width) adjustments */
+    @media (max-width: 640px) {
+      .container { padding-inline: 1rem; }
+    }
+
+    /* Additional mobile fixes: prevent overflow, center content, and reduce huge text on very small screens */
+    @media (max-width: 420px) {
+      /* Make background behave better on mobile (avoid fixed attachment which can be janky) */
+      body {
+        background-attachment: scroll;
+        background-position: top center;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      /* Cap the page content width and center it so large text doesn't touch edges */
+      .mobile-container, .container, main {
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Force sensible wrapping for long lines (links, emails, emojis) */
+      .mobile-container p,
+      .mobile-container li,
+      .mobile-container a,
+      .contact-text,
+      .body-text,
+      h1, h2, h3, h4, h5 {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        hyphens: auto;
+      }
+
+      /* Reduce excessively large headings on very small screens */
+      .mobile-heading {
+        font-size: clamp(1rem, 7.5vw, 1.4rem);
+      }
+
+      /* Slightly reduce body text on narrow viewports to avoid overflow */
+      .body-text {
+        font-size: clamp(0.85rem, 3.2vw, 0.98rem);
+      }
+
+      /* Ensure emojis and inline icons don't blow up layout */
+      .mobile-container emoji,
+      .mobile-container .emoji,
+      .mobile-container img.emoji {
+        max-width: 1.2em;
+        height: auto;
+        vertical-align: middle;
+      }
+    }
+  }

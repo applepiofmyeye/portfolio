@@ -15,7 +15,7 @@ export function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <div className="grid items-center rounded-md border border-gray-200 p-3">
+        <div className="items-center w-fit rounded-md border border-gray-200 p-3">
           <Flower2 />
         </div>
       </SheetTrigger>
@@ -23,21 +23,33 @@ export function MobileNav() {
         <div className="grid items-center gap-6 text-sm text-[#faf6ca]">
           <SheetClose asChild>
             <Link href={`/${Routes.PROJECTS}`}>
-              <Typography variant={"title-sm"} weight={"semibold"}>
+              <Typography
+                variant={"title-sm"}
+                weight={"semibold"}
+                className="text-[#faf6ca]"
+              >
                 projects
               </Typography>
             </Link>
           </SheetClose>
           <SheetClose asChild>
             <Link href={`/${Routes.EXPERIENCES}`}>
-              <Typography variant={"title-sm"} weight={"semibold"}>
+              <Typography
+                variant={"title-sm"}
+                weight={"semibold"}
+                className="text-[#faf6ca]"
+              >
                 experiences
               </Typography>
             </Link>
           </SheetClose>
           <SheetClose asChild>
             <Link href={`/${Routes.PHOTOJOURNAL}`}>
-              <Typography variant={"title-sm"} weight={"semibold"}>
+              <Typography
+                variant={"title-sm"}
+                weight={"semibold"}
+                className="text-[#faf6ca]"
+              >
                 photo journal
               </Typography>
             </Link>
