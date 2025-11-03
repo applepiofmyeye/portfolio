@@ -46,7 +46,10 @@ export default function PhotoJournalPage() {
           >
             my travel scrapbook
           </Typography>
-          <Typography variant={"body-lg"} className="opacity-70 body-text mobile:text-sm">
+          <Typography
+            variant={"body-lg"}
+            className="opacity-70 body-text mobile:text-sm"
+          >
             odd-shaped mementos arranged in a loose collage, click to view its
             backstory and my travel photos :)
           </Typography>

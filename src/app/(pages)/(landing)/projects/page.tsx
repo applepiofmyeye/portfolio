@@ -36,8 +36,8 @@ export default function page() {
         "AWS Route 53",
         "Docker",
       ],
-      status: "stealth mode",
-      link: "https://github.com/applepiofmyeye/ember",
+      status: "deployed",
+      link: "https://emberhost.vercel.app",
     },
     {
       name: "Vucar inspection report",
@@ -104,7 +104,10 @@ export default function page() {
       >
         my projects!
       </Typography>
-      <Typography variant={"body-md"} className="opacity-80 text-[#46688d] body-text mobile:text-sm">
+      <Typography
+        variant={"body-md"}
+        className="opacity-80 text-[#46688d] body-text mobile:text-sm"
+      >
         Some of my passion projects over the years. Click a title or the button
         to view more. Many are also on{" "}
         <Link

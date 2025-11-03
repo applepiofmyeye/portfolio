@@ -24,6 +24,8 @@ const EXPERIENCES: Experience[] = [
       "Contributing to the development of PayPal's global products. (Japan, Mexico, etc)",
     highlights: [
       "Onboarding and ramping up on fintech knowledge... (I now know whats a payment ecosystem teehee)",
+      "Enhanced our Checkout UI for users to pay with their most recently added payment methods.",
+      "Built an MCP server to create test accounts and Checkout sessions for our integration tests.",
     ],
   },
   {
