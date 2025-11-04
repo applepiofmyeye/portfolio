@@ -96,18 +96,15 @@ export default function page() {
     },
   ];
   return (
-    <div className="space-y-8 py-8 text-[#46688d] mobile-container">
+    <div className="space-y-8 py-8 text-[#46688d] container mx-auto px-4 sm:px-6 lg:px-8">
       <Typography
         variant={"display-md"}
         weight={"semibold"}
-        className="text-[#46688d] mobile-heading mobile:text-2xl"
+        className="text-[#46688d] mobile:text-2xl lg:text-5xl"
       >
         my projects!
       </Typography>
-      <Typography
-        variant={"body-md"}
-        className="opacity-80 text-[#46688d] body-text mobile:text-sm"
-      >
+      <Typography variant={"body-md"} className="opacity-80 text-[#46688d] mobile:text-sm lg:text-lg">
         Some of my passion projects over the years. Click a title or the button
         to view more. Many are also on{" "}
         <Link

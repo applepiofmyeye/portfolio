@@ -4,12 +4,12 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="text-[#46688d] mobile-container">
+    <div className="text-[#46688d] container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center justify-center lg:flex-row lg:space-x-20 lg:space-y-0 h-screen">
         <Image
           src="/profile.jpg"
           alt="girl leaning on the railing smiling"
-          className="rounded-lg max-h-[80vh] max-w-[54vh] w-auto h-auto"
+          className="rounded-lg max-h-[80vh] max-w-[50vh] w-auto h-auto object-cover"
           width={1000}
           height={1000}
         />
