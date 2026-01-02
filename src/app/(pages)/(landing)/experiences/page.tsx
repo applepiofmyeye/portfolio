@@ -16,6 +16,16 @@ type Experience = {
 
 const EXPERIENCES: Experience[] = [
   {
+    company: "Amazon",
+    companyLogo: "/experiences/amazon/amazon.png",
+    role: "Software Engineer Intern",
+    period: "Jan 2026 – Present",
+    summary: "Contributing to the development of Amazon's payment offerings.",
+    highlights: [
+      "Incoming intern as part of the Digital Payments and Emerging Markets team.",
+    ],
+  },
+  {
     company: "PayPal",
     companyLogo: "/experiences/paypal/paypal.png",
     role: "Software Engineer Intern",
@@ -26,6 +36,7 @@ const EXPERIENCES: Experience[] = [
       "Onboarding and ramping up on fintech knowledge... (I now know whats a payment ecosystem teehee)",
       "Enhanced our Checkout UI for users to pay with their most recently added payment methods.",
       "Built an MCP server to create test accounts and Checkout sessions for our integration tests.",
+      "Engineered a new API endpoint for PayPal's payment flow using Java and Spring Boot.",
     ],
   },
   {
