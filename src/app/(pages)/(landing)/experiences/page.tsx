@@ -32,7 +32,7 @@ const EXPERIENCES: Experience[] = [
     company: "PayPal",
     companyLogo: "/experiences/paypal/paypal.png",
     role: "Software Engineer Intern",
-    period: "Jul 2025 – Present",
+    period: "Jul 2025 – Dec 2025",
     summary:
       "Contributing to the development of PayPal's global products. (Japan, Mexico, etc)",
     highlights: [
