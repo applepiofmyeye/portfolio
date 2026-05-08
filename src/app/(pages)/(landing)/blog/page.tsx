@@ -51,7 +51,7 @@ export default function BlogPagePrototype() {
         </div>
       </section>
 
-      <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-[#dbe7f3] bg-white/85 shadow-sm">
+      <section className="flex h-full min-h-0 flex-col overflow-hidden">
         <div className="sticky top-0 z-20 border-b border-[#e5edf6] bg-[#f8fbff] p-3">
           <div className="relative h-[30vh] min-h-[220px] overflow-hidden rounded-xl bg-black">
             {activePost.heroType === "video" ? (
@@ -107,11 +107,12 @@ function MobileWheelModal({ items, activeId, onSelect, onClose }: { items: BlogP
           </button>
         </div>
 
-        <div ref={scrollRef} className="h-[56vh] snap-y snap-mandatory space-y-3 overflow-y-auto pb-12">
+        <div ref={scrollRef} className="h-[56vh] snap-y snap-mandatory overflow-y-auto overscroll-contain pb-16 [scrollbar-width:none] [-ms-overflow-style:none] touch-pan-y">
+          <div className="h-20" />
           {items.map((item, index) => {
             const isActive = item.id === activeId;
             return (
-              <button type="button" key={item.id} data-wheel-idx={index} onClick={() => onSelect(item.id)} className={`flex w-full snap-center items-center gap-3 rounded-xl border p-2 text-left transition-all duration-200 ${isActive ? "scale-100 border-[#9ec4eb] bg-[#ecf4fd]" : "scale-90 border-transparent bg-[#f5f8fc] opacity-70"}`}>
+              <button type="button" key={item.id} data-wheel-idx={index} onClick={() => onSelect(item.id)} className={`mb-3 flex w-full snap-center items-center gap-3 rounded-xl border p-2 text-left transition-all duration-200 ${isActive ? "scale-100 border-[#9ec4eb] bg-[#ecf4fd]" : "scale-90 border-transparent bg-[#f5f8fc] opacity-70"}`}>
                 <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-md">
                   <Image src={item.thumbnail} alt={item.title} fill className="object-cover" />
                 </div>
@@ -122,6 +123,7 @@ function MobileWheelModal({ items, activeId, onSelect, onClose }: { items: BlogP
               </button>
             );
           })}
+          <div className="h-24" />
         </div>
       </div>
     </div>
