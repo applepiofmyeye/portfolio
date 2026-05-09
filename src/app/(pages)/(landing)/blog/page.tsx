@@ -39,8 +39,8 @@ export default function BlogPagePrototype() {
   }, []);
 
   return (
-    <main className="mx-auto flex h-[calc(100vh-5rem)] w-full max-w-7xl flex-col overflow-hidden px-4 py-4 text-[#2f4d6f] md:grid md:grid-cols-[0.9fr_1.1fr] md:gap-6 md:px-8">
-      <section className="hidden h-full rounded-2xl border border-[#dbe7f3] bg-white/75 p-3 shadow-sm md:block">
+    <main className="mx-auto flex w-full max-w-7xl flex-col px-4 py-4 text-[#2f4d6f] md:grid md:grid-cols-[0.9fr_1.1fr] md:gap-6 md:px-8">
+      <section className="hidden rounded-2xl border border-[#dbe7f3] bg-white/75 p-3 shadow-sm md:block">
         <div className="h-full snap-y snap-mandatory space-y-3">
           {BLOG_PREVIEWS.map((post) => {
             const isActive = post.id === activePost.id;
@@ -60,9 +60,9 @@ export default function BlogPagePrototype() {
         </div>
       </section>
 
-      <section className="flex h-full min-h-0 flex-col overflow-hidden">
+      <section className="flex min-h-0 flex-col">
         <div className="sticky top-0 z-20 border-b border-[#e5edf6] bg-[#f8fbff] p-3">
-          <div className="relative h-[30vh] min-h-[220px] overflow-hidden rounded-xl bg-black">
+          <div className="relative h-[30vh] min-h-[220px] overflow-hidden rounded-xl bg-transparent">
             {activePost.heroType === "video" ? (
               <video key={activePost.heroSrc} src={activePost.heroSrc} controls className="h-full w-full object-cover" />
             ) : (
@@ -71,7 +71,7 @@ export default function BlogPagePrototype() {
           </div>
         </div>
 
-        <article className="min-h-0 flex-1 p-4 md:p-6">
+        <article className="p-4 md:p-6">
           <div className="space-y-3 pb-20">
             <Typography variant="display-sm" weight="semibold" className="text-2xl">{activePost.title}</Typography>
             <p className="text-sm uppercase tracking-wide text-[#5b7ba0]">{activePost.category} • {activePost.date} • {activePost.readTime}</p>
@@ -80,7 +80,7 @@ export default function BlogPagePrototype() {
           </div>
         </article>
 
-        <div className="sticky bottom-0 z-30 border-t border-[#e5edf6] bg-white/95 p-3 md:hidden">
+        <div className="sticky bottom-0 z-30 border-t border-[#e5edf6] bg-transparent p-3 md:hidden">
           <button type="button" onClick={() => setWheelOpen(true)} className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#ecf4fd] px-4 py-3 text-sm font-semibold text-[#35587d]">
             <Play className="h-4 w-4" />
             More like this
@@ -88,14 +88,13 @@ export default function BlogPagePrototype() {
         </div>
       </section>
 
-      {wheelOpen && <MobileWheelModal items={BLOG_PREVIEWS} activeId={activePost.id} onSelect={scheduleActivate} onClose={() => setWheelOpen(false)} />}
+      {wheelOpen && <MobileWheelModal items={BLOG_PREVIEWS} activeId={activePost.id} onSelect={setActiveId} onClose={() => setWheelOpen(false)} />}
     </main>
   );
 }
 
 function MobileWheelModal({ items, activeId, onSelect, onClose }: { items: BlogPreview[]; activeId: string; onSelect: (id: string) => void; onClose: () => void; }) {
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
-  const scrollIdleRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
     const root = scrollRef.current;
@@ -122,10 +121,7 @@ function MobileWheelModal({ items, activeId, onSelect, onClose }: { items: BlogP
     if (closest?.id) onSelect(closest.id);
   }, [onSelect]);
 
-  const onWheelScroll = () => {
-    if (scrollIdleRef.current) clearTimeout(scrollIdleRef.current);
-    scrollIdleRef.current = setTimeout(syncSelectionFromScroll, 120);
-  };
+  const onWheelScroll = () => syncSelectionFromScroll();
 
   return (
     <div className="fixed inset-0 z-50 md:hidden" onClick={onClose}>
